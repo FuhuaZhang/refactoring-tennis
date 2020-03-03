@@ -24,34 +24,28 @@ public class TennisGame1 implements TennisGame {
             return getScoreWhenScoreTheSame();
         } else if (m_score1>=4 || m_score2>=4) {
             return getScoreWhenAtLeastOneScoreGreaterThanFour();
-        } else
-        {
-            String score = "";
-
-            score += getScoreDescription(m_score1);
-            score += "-";
-            score += getScoreDescription(m_score2);
-            return score;
+        } else {
+            return getScoreDescription(m_score1) + "-" + getScoreDescription(m_score2);
         }
     }
 
-    private String getScoreDescription(int m_score1) {
-        String score = "";
-        switch (m_score1) {
+    private String getScoreDescription(int m_score) {
+        String scoreDescription = "";
+        switch (m_score) {
             case 0:
-                score += "Love";
+                scoreDescription += "Love";
                 break;
             case 1:
-                score += "Fifteen";
+                scoreDescription += "Fifteen";
                 break;
             case 2:
-                score += "Thirty";
+                scoreDescription += "Thirty";
                 break;
             case 3:
-                score += "Forty";
+                scoreDescription += "Forty";
                 break;
         }
-        return score;
+        return scoreDescription;
     }
 
     private String getScoreWhenAtLeastOneScoreGreaterThanFour() {
