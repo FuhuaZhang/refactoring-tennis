@@ -27,41 +27,31 @@ public class TennisGame1 implements TennisGame {
         } else
         {
             String score = "";
-            int tempScore=0;
 
-            tempScore = m_score1;
-            switch (tempScore) {
-                case 0:
-                    score += "Love";
-                    break;
-                case 1:
-                    score += "Fifteen";
-                    break;
-                case 2:
-                    score += "Thirty";
-                    break;
-                case 3:
-                    score += "Forty";
-                    break;
-            }
+            score += getScoreDescription(m_score1);
             score += "-";
-            tempScore = m_score2;
-            switch (tempScore) {
-                case 0:
-                    score += "Love";
-                    break;
-                case 1:
-                    score += "Fifteen";
-                    break;
-                case 2:
-                    score += "Thirty";
-                    break;
-                case 3:
-                    score += "Forty";
-                    break;
-            }
+            score += getScoreDescription(m_score2);
             return score;
         }
+    }
+
+    private String getScoreDescription(int m_score1) {
+        String score = "";
+        switch (m_score1) {
+            case 0:
+                score += "Love";
+                break;
+            case 1:
+                score += "Fifteen";
+                break;
+            case 2:
+                score += "Thirty";
+                break;
+            case 3:
+                score += "Forty";
+                break;
+        }
+        return score;
     }
 
     private String getScoreWhenAtLeastOneScoreGreaterThanFour() {
