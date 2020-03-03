@@ -20,29 +20,9 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        if (m_score1==m_score2)
-        {
-            String score = "";
-
-            switch (m_score1)
-            {
-                case 0:
-                        score = "Love-All";
-                    break;
-                case 1:
-                        score = "Fifteen-All";
-                    break;
-                case 2:
-                        score = "Thirty-All";
-                    break;
-                default:
-                        score = "Deuce";
-                    break;
-
-            }
-            return score;
-        }
-        else if (m_score1>=4 || m_score2>=4)
+        if (m_score1==m_score2) {
+            return getScoreWhenScoreTheSame();
+        } else if (m_score1>=4 || m_score2>=4)
         {
             String score = "";
 
@@ -91,5 +71,27 @@ public class TennisGame1 implements TennisGame {
             }
             return score;
         }
+    }
+
+    private String getScoreWhenScoreTheSame() {
+        String score = "";
+
+        switch (m_score1)
+        {
+            case 0:
+                    score = "Love-All";
+                break;
+            case 1:
+                    score = "Fifteen-All";
+                break;
+            case 2:
+                    score = "Thirty-All";
+                break;
+            default:
+                    score = "Deuce";
+                break;
+
+        }
+        return score;
     }
 }
